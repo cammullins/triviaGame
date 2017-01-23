@@ -1,17 +1,13 @@
 <div ng-controller="loginController">
   <div class="container">
     <h1>What's you name User?</h1>
-    <div class="row">
-      <div class="col-xs-1"></div>
-      <div class="col-xs-5">
-        <p style="color: red" ng-repeat="error in errors">{{error}}</p>
-        <div class="form-group">
-          <label>Insert Name Here:</label>
-          <input type="text" class="form-control" ng-model="newUser.name">
-          <button type="button" class="btn btn-primary" ng-click="login()" value="login">Login</button>
-        </div>
+    <p style="color: red" ng-repeat="error in errors">{{error}}</p>
+    <form ng-submit="login()">
+      <div class="form-group">
+        <label for="name">Insert Name Here:</label>
+        <input type="text" class="form-control" ng-model="newUser.name" id="name">
       </div>
-      <div class="col-xs-6"></div>
-    </div>
+      <button type="submit" class="btn btn-primary">Login</button>
+    </form>
   </div>
 </div>

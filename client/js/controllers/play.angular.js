@@ -8,17 +8,18 @@ $scope.errors = [];
     if(!$scope.sessionUser.loggedIn){
       $location.url('/');
     }
-  });
+  })
 
   QuestionFactory.getQuestions(function(response){
     $scope.quizQuestions = response;
-  });
+  })
 
   $scope.goback = function(){
     $location.url('/dashboard');
-  };
+  }
+
   $scope.submitAnswers = function(){
-    var res = checkScore();
+    var res = checkScore($scope.answers, $scope.quizQuestions);
     QuestionFactory.quizFinish({user: $scope.sessionUser.user_id, score: res}, function(response){
       if (!response.data.status){
         $scope.errors.push(response.data.errors);
@@ -28,12 +29,10 @@ $scope.errors = [];
     })
   }
 
-var checkScore = function(){
+var checkScore = function(a, b){
   var score = 0;
-  var playerAns = $scope.answers;
-  var correctAns = $scope.quizQuestions;
-  for (var i in playerAns){
-    if (playerAns[i].answer === correctAns[i].correctAnswer){
+  for (var i in a){
+    if (a[i].answer === b[i].correctAnswer){
       score++;
     }
   }

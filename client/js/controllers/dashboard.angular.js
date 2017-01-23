@@ -1,6 +1,5 @@
 myApp.controller('DashboardController', function($scope, $location, UserFactory, QuestionFactory){
 
-  // $scope.sessionUser;
   $scope.errors = [];
   $scope.messages = [];
 

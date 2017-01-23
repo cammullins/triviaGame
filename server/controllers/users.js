@@ -2,7 +2,6 @@ var User = mongoose.model('User');
 
 module.exports = (function(){
   return{
-
     index: function(req, res){
       User.find({scores: {$not:{$size: 0} }}, function(err, scores){
         if (err){
@@ -12,7 +11,6 @@ module.exports = (function(){
         }
       })
     },
-
     create: function(req, res){
       var user = new User(req.body);
       user.save(function(err){
@@ -28,7 +26,6 @@ module.exports = (function(){
         }
       })
     },
-
     quiz: function(req, res){
       User.findByIdAndUpdate({_id: req.body.user}, {$push: {scores: req.body.score}}, function(err){
         if(err){
@@ -38,7 +35,6 @@ module.exports = (function(){
         }
       })
     },
-
     logout: function(req, res){
         sessionUser = {loggedIn: false};
         res.json({status: true, sessionUser: sessionUser})

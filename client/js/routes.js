@@ -13,10 +13,6 @@ myApp.config(function($locationProvider, $routeProvider){
     .when('/lets_play', {
       templateUrl: "partials/lets_play.html"
     })
-    .when('/poo',{
-             templateUrl: 'partials/poo.html',
-             controller: 'pooController'
-        })
     .otherwise({
       redirectTo: '/'
     })
