@@ -1,0 +1,24 @@
+<div ng-controller="playController">
+  <div class="container">
+    <h4>Hi {{sessionUser.username}}</h4>
+    <h4>Choose an Answer for each of the Questions and submit the test once done.</h4>
+    <h4>Good Luck!</h4>
+    <p style="color: red" ng-repeat="error in errors">{{error}}</p>
+    <form ng-submit="submitAnswers()">
+      <div class="well" ng-repeat="quiz in quizQuestions track by $index">
+        <h5>{{quiz.question}}</h5>
+        <div class="radio">
+          <label><input type="radio" ng-model="$parent.answers[$index].answer" value="{{quiz.correctAnswer}}">{{quiz.correctAnswer}}</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio"  ng-model="$parent.answers[$index].answer" value="{{quiz.fakeAnswer1}}">{{quiz.fakeAnswer1}}</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" ng-model="$parent.answers[$index].answer" value="{{quiz.fakeAnswer2}}">{{quiz.fakeAnswer2}}</label>
+        </div>
+      </div>
+      <button type="button" class="btn btn-warning" ng-click="goback()">Cancel</button>
+      <input type="submit" class="btn btn-success" value="Submit">
+    </form>
+  </div>
+</div>

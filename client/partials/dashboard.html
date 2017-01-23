@@ -1,0 +1,47 @@
+<div ng-controller="DashboardController">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-1"></div>
+        <div class="col-xs-1">
+          <a href="#/dashboard">Home</a>
+        </div>
+        <div class="col-xs-2">
+          <a ng-href="#/new_question">Add A Question</a>
+        </div>
+        <div class="col-xs-6"></div>
+        <div class="col-xs-2">
+          <button type="button" class="btn btn-danger" ng-click="logout()">Logout</button>
+        </div>
+      </div>
+    <h3>Welcome to Trivia, {{sessionUser.username}}!</h3>
+    <p style="color: green; text-align: center" ng-repeat="message in messages">{{message}}</p>
+    <div class="row">
+      <div class="col-xs-2"></div>
+      <div class="well" style="text-align: center">
+          <button type="button" class="btn btn-success" ng-click="playButton()">Play!</button>
+          <p>
+            Click the button above to Start the Trivia Game!
+          </p>
+      </div>
+      <div class="col-xs-2"></div>
+    </div>
+    <div class="row">
+      <div class="col-xs-7">  </div>
+      <div class="col-xs-5">
+        <label>Search:</label><input type="text" ng-model="search">
+      </div>
+    </div>
+    <table class="table table-bordered table-striped">
+      <tr>
+        <th>Name</th>
+        <th>Score</th>
+        <th>Percentage</th>
+      </tr>
+      <tr ng-repeat="score in scores | filter: search | orderBy: '-updatedAt'">
+        <td> {{score.name}}</td>
+        <td>{{score.scores}}/3 </td>
+        <td>100%</td>
+      </tr>
+    </table>
+  </div>
+</div>

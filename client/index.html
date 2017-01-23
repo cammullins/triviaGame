@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang='en-US'>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+                        <!--CSS-->
+    <link rel="stylesheet" href="./css/bootstrap.min.css" media="screen">
+                        <!--angular-->
+    <script src="angular/angular.js" charset="utf-8"></script>
+    <script src="angular-route/angular-route.js" charset="utf-8"></script>
+    <script>var myApp = angular.module('myApp', ['ngRoute']);</script>
+                      <!--Front-end Routes-->
+    <script src="./js/routes.js" charset="utf-8"></script>
+                      <!--Angular factories-->
+    <script src="./js/factories/user.angular.js" charset="utf-8"></script>
+    <script src="./js/factories/question.angular.js" charset="utf-8"></script>
+                      <!--Angular controllers-->
+    <script src="./js/controllers/login.angular.js" charset="utf-8"></script>
+    <script src="./js/controllers/dashboard.angular.js" charset="utf-8"></script>
+    <script src="./js/controllers/newQuestion.angular.js" charset="utf-8"></script>
+    <script src="./js/controllers/play.angular.js" charset="utf-8"></script>
+    <script src="./js/controllers/poo.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <div ng-app="myApp">
+      <div ng-view="">
+      </div>
+    </div>
+  </body>
+</html>
