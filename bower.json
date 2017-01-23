@@ -1,12 +1,12 @@
 {
-  "name": "MeanExamDisplay",
+  "name": "triviaGame",
   "description": "",
   "main": "server.js",
   "authors": [
     "Cameron Mullins <cmullins510@gmail.com>"
   ],
   "license": "ISC",
-  "homepage": "",
+  "homepage": "https://github.com/crowned1/triviaGame",
   "ignore": [
     "**/.*",
     "node_modules",
