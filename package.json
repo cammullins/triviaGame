@@ -7,9 +7,17 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crowned1/triviaGame.git"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/crowned1/triviaGame/issues"
+  },
+  "homepage": "https://github.com/crowned1/triviaGame#readme",
   "dependencies": {
     "body-parser": "^1.16.0",
     "express": "^4.14.0",
