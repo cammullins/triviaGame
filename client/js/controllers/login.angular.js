@@ -4,7 +4,6 @@ myApp.controller('loginController', function($scope, $location, UserFactory){
 
   $scope.login = function(){
     UserFactory.createUser($scope.newUser, function(response){
-      console.log(response);
       if(!response.data.status) {
         $scope.errors.push(response.data.errors);
       }else{

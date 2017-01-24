@@ -15,14 +15,17 @@ module.exports = (function(){
       var question = new Question(req.body);
       question.save(function(err){
         if (err){
-          console.log(err.errors);
           var errorsArr = [];
           for (var i in err.errors){
-            if (err.errors[i].message.includes("is shorter than the minimum allowed length (2)"))
+            if (err.errors[i].message.includes("is shorter than the minimum allowed length (2)")){
               errorsArr.push("Answers must be longer than 2 characters");
-            if (err.errors[i].message.includes("is shorter than the minimum allowed length (10)"))
+            }
+            if (err.errors[i].message.includes("is shorter than the minimum allowed length (10)")){
               errorsArr.push("Question must be longer than 10 characters");
-            else errorsArr.push("Each field is required to submit")
+            }
+            if (err.errors[i].message.includes("is required")){
+              errorsArr.push("Each field is required to submit");
+            }
           }
           res.json({status: false, errors: errorsArr})
         }else{
