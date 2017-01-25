@@ -11,7 +11,11 @@ $scope.errors = [];
   })
 
   QuestionFactory.getQuestions(function(response){
-    $scope.quizQuestions = response;
+    if(!response.data.status){
+      $scope.errors.push(response.data.errors);
+    }else{
+      $scope.quizQuestions = response;
+    }
   })
 
   $scope.goback = function(){

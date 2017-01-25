@@ -2,8 +2,8 @@ var mongoose = require('mongoose'),
     fs      = require('fs'),
     path    = require('path');
 
-// mongoose.connect('mongodb://localhost/MeanExam2');
-mongoose.connect('mongodb://ec2-52-33-2-243.us-west-2.compute.amazonaws.com/MeanExam2');
+mongoose.connect('mongodb://localhost/MeanExam2');
+// mongoose.connect('mongodb://ec2-52-33-2-243.us-west-2.compute.amazonaws.com/MeanExam2');
 
 
 var models_path = path.join(__dirname, './../models');
