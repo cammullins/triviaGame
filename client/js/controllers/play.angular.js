@@ -11,10 +11,11 @@ $scope.errors = [];
   })
 
   QuestionFactory.getQuestions(function(response){
-    if(!response.data.status){
-      $scope.errors.push(response.data.errors);
+    // console.log(response);
+    if(!response.status){
+      $scope.errors.push(response.errors);
     }else{
-      $scope.quizQuestions = response;
+      $scope.quizQuestions = response.quizQuestions;
     }
   })
 

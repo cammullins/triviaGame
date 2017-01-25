@@ -3,17 +3,28 @@ var Question = mongoose.model('Question');
 module.exports = (function(){
   return{
     index: function(req, res){
-      Question.aggregate({$sample: { size: 3 }}, function(err, quizQuestions){
-        if(err){
+      Question.find(function(err, quizQuestions){
+        if (err){
           var errorsArr = [];
-          for (var i in err.errors){
-            errorsArr.push(err.errors[i].message);
-          }
-          res.json({status: false, errors: errorsArr});
-        }else{
-          res.json(quizQuestions)
+            for (var i in err.errors){
+              errorsArr.push(err.errors[i].message);
+            }
+            res.json({status: false, errors: errorsArr});
+          }else{
+          res.json({status: true, quizQuestions: quizQuestions});
         }
       })
+      // Question.aggregate({$sample: { size: 3 }}, function(err, quizQuestions){
+      //   if(err){
+      //     var errorsArr = [];
+      //     for (var i in err.errors){
+      //       errorsArr.push(err.errors[i].message);
+      //     }
+      //     res.json({status: false, errors: errorsArr});
+      //   }else{
+      //     res.json(quizQuestions)
+      //   }
+      // })
     },
     create: function(req, res){
       var question = new Question(req.body);
