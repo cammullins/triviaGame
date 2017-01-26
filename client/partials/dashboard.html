@@ -39,7 +39,7 @@
           <th>Percentage</th>
         </tr>
       </thead>
-      <tbody ng-repeat="score in scores track by $index | filter: search | orderBy: '-updatedAt'">
+      <tbody ng-repeat="score in scores | filter: search | orderBy: '-updatedAt'">
         <tr ng-repeat="num in score.scores track by $index">
           <td> {{score.name}}</td>
           <td >{{num.score}}</td>
