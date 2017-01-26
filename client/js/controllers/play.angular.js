@@ -11,6 +11,7 @@ $scope.errors = [];
   })
 
   QuestionFactory.getQuestions(function(response){
+    console.log(response);
     if(!response.status){
       $scope.errors.push(response.errors);
     }else{
