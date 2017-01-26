@@ -10,7 +10,7 @@ module.exports = (function(){
           for (var i in err.errors){
             errorsArr.push(err.errors[i].message);
           }
-          res.json({status: false, errors: errorsArr});
+          res.json({status: false, errors: err});
         }else{
           res.json({status: true, quizQuestions: quizQuestions})
         }
