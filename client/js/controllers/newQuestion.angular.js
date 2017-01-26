@@ -14,13 +14,11 @@ myApp.controller('newQuestionController', function($scope, $location, UserFactor
         for (var idx = 1; idx < err.length; idx++){
           if (err[idx] == prev){
             prev = err[idx];
-            console.log(prev);
           }else{
             $scope.errors.push(err[idx]);
             prev = err[idx];
           }
         }
-        console.log($scope.errors);
       }else{
         $location.path('/dashboard')
       }

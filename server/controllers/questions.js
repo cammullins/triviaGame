@@ -11,7 +11,7 @@ module.exports = (function(){
           }
           res.json({status: false, errors: errorsArr});
         }else{
-          res.json(status: true; quizQuestions: quizQuestions)
+          res.json({status: true, quizQuestions: quizQuestions})
         }
       })
     },

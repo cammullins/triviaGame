@@ -27,8 +27,9 @@ module.exports = (function(){
       })
     },
     quiz: function(req, res){
-      User.findByIdAndUpdate({_id: req.body.user}, {$push: {scores: req.body.score}}, function(err){
+      User.findByIdAndUpdate({_id: req.body.user}, {$push: {"scores": {score: req.body.score, percent: Math.floor(req.body.score/3*100)} }}, function(err){
         if(err){
+          console.log(err);
           res.json({status: false, errors: "Error saving Score"});
         }else{
           res.json({status: true, message: "You answered " + req.body.score + " questions out of 3 correctly for a score of " + Math.floor(req.body.score/3*100) + "%"})

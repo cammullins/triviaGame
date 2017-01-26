@@ -1,7 +1,7 @@
 <div ng-controller="playController">
   <div class="container">
     <h4>Hi {{sessionUser.username}}</h4>
-    <h4>Choose an Answer for each of the Questions and submit the test once done.</h4>
+    <h4>Choose an Answer for each of the Questions and then submit to get your score</h4>
     <h4>Good Luck!</h4>
     <p style="color: red" ng-repeat="error in errors">{{error}}</p>
     <form ng-submit="submitAnswers()">

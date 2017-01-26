@@ -31,17 +31,21 @@
         <label>Search:</label><input type="text" ng-model="search">
       </div>
     </div>
-    <table class="table table-bordered table-striped">
-      <tr>
-        <th>Name</th>
-        <th>Score</th>
-        <th>Percentage</th>
-      </tr>
-      <tr ng-repeat="score in scores | filter: search | orderBy: '-updatedAt'">
-        <td> {{score.name}}</td>
-        <td>{{score.scores}}/3 </td>
-        <td>100%</td>
-      </tr>
+    <table class="table table-bordered table-hover" >
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Score</th>
+          <th>Percentage</th>
+        </tr>
+      </thead>
+      <tbody ng-repeat="score in scores | filter: search | orderBy: '-updatedAt'">
+        <tr ng-repeat="num in score.scores | orderBy: '-updatedAt'">
+          <td> {{score.name}}</td>
+          <td >{{num.score}}</td>
+          <td >{{num.percent}}%</td>
+        </tr>
+      </tbody>
     </table>
   </div>
 </div>
