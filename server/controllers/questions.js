@@ -5,6 +5,7 @@ module.exports = (function(){
     index: function(req, res){
       Question.aggregate({$sample: { size: 3 }}, function(err, quizQuestions){
         if(err){
+          console.log(err);
           var errorsArr = [];
           for (var i in err.errors){
             errorsArr.push(err.errors[i].message);
